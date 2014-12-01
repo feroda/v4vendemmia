@@ -1,8 +1,8 @@
 Changelog v0.1:
 
 * Aggiunto un menu iniziale
-* Aggiunta la possibilità di ritornare al menu
-* inserire tutti i messaggi per l'utente su whiptail
-* Aggiunta una barra di completamento (vera!)
+* Aggiunta la possibilità di ritornare al menu dopo la scrittura
+* Inseriti tutti i messaggi per l'utente su whiptail
+* Aggiunta una barra di avanzamento (vera!)
 
 * "Bug" espeak (durante la riproduzione torna alla bash pemettendo l'uscita dal script con CTRL+C)
