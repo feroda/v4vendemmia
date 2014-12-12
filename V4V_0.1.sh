@@ -139,7 +139,7 @@ do
 	
 	if [ $? = "1" ]
 	then
-		PASS=$(whiptail --backtitle "$TITLE" --inputbox "Digita la password per uscire." 8 78 --title "Password" 3>&1 1>&2 2>&3)
+		PASS=$(whiptail --backtitle "$TITLE" --passwordbox "Digita la password per uscire." 8 78 --title "Password" 3>&1 1>&2 2>&3)
 		if [ $PASS = $PASSWORD ]
 		then			
 			exit
