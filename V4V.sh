@@ -134,8 +134,8 @@ DVD ()
 while [ 1 ]
 do	
 	choice=$(whiptail --title "$TITLE" --backtitle "$TITLE" --cancel-button "Esci" --menu "Scegli:" 20 78 10 \
-	"1" "Installa un sistema Linux su USB" \
-	"2" "Installa un sistema Linux su DVD" \
+	"1" "Installa un sistema libero su USB" \
+	"2" "Installa un sistema libero su DVD" \
 	"3" "Qualche info su di noi" 3>&1 1>&2 2>&3)
 	
 	if [ $? = "1" ]
@@ -156,7 +156,7 @@ do
 			#DVD
 		 	;;
 		3)
-			whiptail --title "$TITLE" --backtitle "$TITLE"  --msgbox "$(cat $1/INFO.txt)" 10 70 3>&1 1>&2 2>&3
+            whiptail --title "$TITLE" --backtitle "$TITLE"  --msgbox "$(cat $(dirname $0)/ABOUT.txt)" 10 70 3>&1 1>&2 2>&3
 		 	;;
 	esac  	
 done
