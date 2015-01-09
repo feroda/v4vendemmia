@@ -4,7 +4,6 @@
 TITLE="V4Vendemmia 0.1"		#Titolo
 PASSWORD="PDP"			#Password
 
-
 #Controllo se è stata passata correttamente la DIR delle ISO
 if [ -z "$1" ]
 then
@@ -23,11 +22,16 @@ fi
 if [ "$EUID" -ne 0 ] 
 then 
 	echo "V4V ha bisogno dei permessi di ROOT"
-	echo "Utilizzo: sudo"
   	exit 102
 fi
 
 dirname="$1"
+
+whiptail --backtitle "$TITLE" --msgbox "Assicurati di NON aver inserito la chiavetta su cui vuoi che gli utenti scrivano i sistemi operativi!" 10 70 3>&1 1>&2 2>&3
+
+#Controllo dei disk che non potranno essere scritti
+DEVICES_UNWRITABLE="$(lsblk -d -n -o NAME)"
+	
 
 #Funzione di scelta del ISO			
 ISO_CHOICE ()
@@ -70,11 +74,6 @@ USB ()
 	#Riazzero le variabli
 	DEVICES_AVAILABLE=
 
-	whiptail --backtitle "$TITLE" --msgbox "Assicurati di NON aver inserito la chiavetta su cui vuoi che gli utenti scrivano i sistemi operativi!" 10 70 3>&1 1>&2 2>&3
-
-	#Controllo dei disk che non potranno essere scritti
-	DEVICES_UNWRITABLE="$(lsblk -d -n -o NAME)"
-	
 	iso_absolute_path=$(ISO_CHOICE)			
 	if [ $iso_absolute_path = "1" ]
 	then
@@ -115,10 +114,12 @@ USB ()
 	if [ $? == "0" ] 
 	then	
 		(pv -n "${iso_absolute_path}" | /bin/dd of="${DEVICE}") 2>&1 | whiptail --backtitle "$TITLE" --gauge "Please wait..." 7 70 0  3>&1 1>&2 2>&3
-		whiptail --backtitle "$TITLE" --msgbox "Fatto tutto. Goditi la tua $iso" 10 70 3>&1 1>&2 2>&3 #espeak -v it "Fatto tutto. Goditi la tua $iso" 2>/dev/null
+		whiptail --backtitle "$TITLE" --msgbox "Fatto tutto. Goditi la tua $iso" 10 70 3>&1 1>&2 2>&3 
+        # espeak -v it "Fatto tutto. Goditi la tua $iso" 2>/dev/null
 		return
 	else	
-		whiptail --backtitle "$TITLE" --msgbox "Paura eh?! Ricorda: meglio un giorno da leoni..." 10 70 3>&1 1>&2 2>&3 #espeak -v it "Paura eh?! Ricorda: meglio un giorno da leoni..." 2>/dev/null
+		whiptail --backtitle "$TITLE" --msgbox "Paura eh?! Ricorda: meglio un giorno da leoni..." 10 70 3>&1 1>&2 2>&3 
+        #espeak -v it "Paura eh?! Ricorda: meglio un giorno da leoni..." 2>/dev/null
 		return
 	fi	
 }
@@ -133,9 +134,9 @@ DVD ()
 while [ 1 ]
 do	
 	choice=$(whiptail --title "$TITLE" --backtitle "$TITLE" --cancel-button "Esci" --menu "Scegli:" 20 78 10 \
-	"1" "Installa un sistema Linux su USB." \
-	"2" "Installa un sistema Linux su DVD." \
-	"3" "Qualche info su di noi." 3>&1 1>&2 2>&3)
+	"1" "Installa un sistema Linux su USB" \
+	"2" "Installa un sistema Linux su DVD" \
+	"3" "Qualche info su di noi" 3>&1 1>&2 2>&3)
 	
 	if [ $? = "1" ]
 	then
