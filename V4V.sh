@@ -114,12 +114,12 @@ USB ()
 	if [ $? == "0" ] 
 	then	
 		(pv -n "${iso_absolute_path}" | /bin/dd of="${DEVICE}") 2>&1 | whiptail --backtitle "$TITLE" --gauge "Please wait..." 7 70 0  3>&1 1>&2 2>&3
+        espeak -v it "Fatto tutto. Goditi la tua $iso" 2> /dev/null &
 		whiptail --backtitle "$TITLE" --msgbox "Fatto tutto. Goditi la tua $iso" 10 70 3>&1 1>&2 2>&3 
-        # espeak -v it "Fatto tutto. Goditi la tua $iso" 2>/dev/null
 		return
 	else	
+        espeak -v it "Paura eh?! Ricorda: meglio un giorno da leoni..." 2>/dev/null &
 		whiptail --backtitle "$TITLE" --msgbox "Paura eh?! Ricorda: meglio un giorno da leoni..." 10 70 3>&1 1>&2 2>&3 
-        #espeak -v it "Paura eh?! Ricorda: meglio un giorno da leoni..." 2>/dev/null
 		return
 	fi	
 }
