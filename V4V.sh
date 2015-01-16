@@ -25,6 +25,7 @@ then
   	exit 102
 fi
 
+/bin/dmesg -n 1
 dirname="$1"
 
 whiptail --backtitle "$TITLE" --msgbox "Assicurati di NON aver inserito la chiavetta su cui vuoi che gli utenti scrivano i sistemi operativi!" 10 70 3>&1 1>&2 2>&3
