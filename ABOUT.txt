@@ -1,5 +1,5 @@
 PDP Free Software User Group <info@pdp.linux.it>
 
-tribute to admstaff led by Renzo Davoli
+Tributo al admstaff diretto da Renzo Davoli
 
 License: GNU Affero GPLv3
