@@ -4,6 +4,8 @@
 TITLE="V4Vendemmia 0.2"		#Titolo
 PASSWORD="PDP"			#Password
 
+LOGFILE="v4vendemmia.log"
+
 #Controllo se è stata passata correttamente la DIR delle ISO
 if [ -z "$1" ]
 then
@@ -110,7 +112,7 @@ USB ()
 		(pv -n "${dirname}"/"${iso}" | /bin/dd of="${DEVICE}") 2>&1 | whiptail --backtitle "$TITLE" --gauge "Please wait..." 7 70 0  3>&1 1>&2 2>&3
         	espeak -v it "Fatto tutto. Goditi la tua $iso!" 2> /dev/null &
 		whiptail --backtitle "$TITLE" --msgbox "Fatto tutto. Goditi la tua $iso!" 10 70 3>&1 1>&2 2>&3
-		echo "$iso" "$HOSTNAME" $(date '+%A %W %Y %X') >> cont.txt 
+		echo $(date '+%A %W %Y %X') "$HOSTNAME" "$iso" >> $LOGFILE
 		return
 	else	
         	espeak -v it "Paura eh?! Ricorda: meglio un giorno da leoni..." 2>/dev/null &
@@ -132,11 +134,7 @@ DVD ()
 while [ 1 ]
 do
 	#Imposto Contatore	
-	cont=0
-	while read line           
-	do           
-    		cont=$(($cont+1))           
-	done <cont.txt
+    cont=$(cat $LOGFILE | wc -l)
 	
 	choice=$(whiptail --title "Menu Principale" --backtitle "$TITLE" --cancel-button "Esci" --menu "Scegli:" 20 78 8 \
 	"1" "Installa un sistema libero su USB" \
