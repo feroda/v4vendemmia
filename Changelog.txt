@@ -1,5 +1,0 @@
-Changelog v0.2:
-
-* Aggiunto un contatore delle iso distribuite (con nome pc e ora)
-* Aggiunto la grandezza delle iso nel menu di scelta (sostituendo i numeri 0-9)
-* Ripulito il codice
