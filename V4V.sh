@@ -58,7 +58,7 @@ do
 	
 	choice=$(whiptail --title "Menu Principale" --backtitle "$TITLE" --cancel-button "Esci" --menu "Scegli:" 20 78 8 \
 	"1" "Installa un sistema libero su USB" \
-	"2" "Masterizza un sistema libero su CD/DVD" \
+	"2" "Masterizza un sistema libero su CD/DVD (prossimamente!)" \
 	"3" "Qualche info su di noi" \
 	"4" "Aiuto" \
 	" " "     " \
@@ -79,7 +79,7 @@ do
 	in
 		1)	USB
 		 	;;
-		3)	whiptail --title "$TITLE" --backtitle "$TITLE"  --msgbox "$(cat $V4VPATH/V4V/data/ABOUT.txt)" 10 70 3>&1 1>&2 2>&3
+		3)	whiptail --title "$TITLE" --backtitle "$TITLE"  --msgbox "$(cat $V4VPATH/V4V/data/ABOUT.txt)" 12 60 3>&1 1>&2 2>&3
 			;;
 		4)	source $V4VPATH/V4V/functions/HelpDialog.sh
 			;;			
