@@ -1,0 +1,10 @@
+Disable screen auto-dim
+  
+1)Install "Console-tools"
+2)To turn off screen blanking and powerdown, set BLANK_TIME and POWERDOWN_TIME to 0  
+
+/etc/console-tools/config
+
+BLANK_TIME=0
+POWERDOWN_TIME=0
+
