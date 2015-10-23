@@ -2,7 +2,7 @@
 
 ###Funzione di scrittura su device###
 
-whiptail --backtitle "$TITLE" --yesno "Stai per scrivere l'immagine $ISO sul device $DEVICE. Sei sicuro?" 8 45 3>&1 1>&2 2>&3
+whiptail --backtitle "$TITLE" --yesno "Stai per scrivere l'immagine $ISO sul device $DEVICE. Sei sicuro?" 12 45 3>&1 1>&2 2>&3
 if [ $? == "0" ]
 then
 	(pv -n "${dirname}"/"${ISO}" | /bin/dd of="${DEVICE}") 2>&1 | whiptail --backtitle "$TITLE" --gauge "Please wait..." 7 70 0
