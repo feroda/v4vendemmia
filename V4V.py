@@ -3,44 +3,112 @@
 import sys
 import os
 import subprocess
-
-# To use this you must do "pip install whiptail"
 import whiptail
+import time
 
 #Definizioni
-TITLE="V4Vendemmia 0.3-py"    #Titolo
-PASSWORD="PDP"                  #Password
-LOGFILE="v4vendemmia.log"	#Nome del Log
-DIALOG="whiptail"
+TITLE = "V4Vendemmia 0.3-py"   	#Titolo
+PASSWORD = "PDP"            	#Password
+LOGFILE = "v4vendemmia.log"	    #Nome del Log
 
-dirname=sys.argv[1]
-V4VPATH=os.path.abspath(os.path.dirname(__file__)) 		#Cartella V4V
+#Controllo presenza DIR
+try:
+    dirname=sys.argv[1]
+except IndexError:
+    sys.exit("Errore!\nMi serve una DIR con le ISO!")
+
+V4VPATH = os.path.abspath(os.path.dirname(__file__)) 		#Cartella V4V
+olddev= ''
 exit = False
-
 
 # Setting up things
 def setup():
-    print("Inizializzo")
-    pass
+    global olddev
+    print(TITLE + "\nInitialization . . .")
+    if not os.geteuid() == 0:
+        sys.exit("Errore!\nHo bisogno dei permessi di ROOT!")
 
+    #Dev non scrivibili
+    w = whiptail.Whiptail("Attenzione!", TITLE, 8, 70)
+    w.alert("Assicurati di NON aver inserito la chiavetta su cui vuoi che gli utenti scrivano i sistemi operativi!")   
+    olddev = subprocess.check_output("lsblk -d -n -o NAME", shell=True).split('\n') 
 
+#Funzione scelta iso
 def isochoice():
-    return "unfile.iso senza farlo scegliere all'utente per ora"
+    isos = [ iso for iso in os.listdir(dirname) if iso.endswith('.iso') ]
+    items = []
+    choice = []
+    isofile = ''
 
+    #Costruisco lista iso da visualizzare e calcolo dimesione
+    for i, iso in enumerate(isos, start=1):
+        size = round(os.path.getsize(os.path.join(dirname,iso))/(1024*1024*1024.0),1)
+        items.append((iso, str(size)+"GB", "OFF")),size
 
+    try:
+        #Controllo se ci sono delle iso
+        if not items:
+            w = whiptail.Whiptail("Errore!", TITLE, 8, 50)
+            w.alert("Nessuna ISO trovata!\nAssicurati che la directory sia giusta.")
+            raise SystemExit
+
+        while not choice:
+            w = whiptail.Whiptail("Scelta Iso", TITLE, 20, 60)
+            choice = w.radiolist("Scegli il sistema da portarti a casa:" , items=items, prefix="     ")
+    except SystemExit as e:
+        if e.code == 1:
+            pass
+    else:
+        isofile = os.path.join(dirname, choice[0])
+    return isofile
+
+# Funzione Dev dove scrivere 
 def usbdevice():
-    return "quella sul tuo PC stai attento che puoi flasharti il disco se il device non e' quello giusto!"
+    mydev = []
+    rv = ''
+ 
+    try: 
+        while not mydev:
+            w = whiptail.Whiptail("Errore!", TITLE, 10, 50)
+            if w.confirm("Inserisci la tua chiavetta USB! \n\nATTENZIONE il contenuto verra' cancellato!"):
+                dev = subprocess.check_output("lsblk -d -n -o NAME", shell=True).split('\n')
+                mydev = set(dev) - set(olddev)
+            else:
+                raise SystemExit 
 
+        rv =  mydev.pop()
+        if mydev:
+            w = whiptail.Whiptail("Attenzione!", TITLE, 10, 50)
+            w.alert("Ho notato che hai inserito piu' di una chiavetta!\nRimuovi l'ultima che hai inserito e premi OK.")
+    except SystemExit as e:
+        if e.code == 1:
+            pass
+    return rv
 
 # Funzione USB
 def usbwrite():
     isofile = isochoice()
+    if not isofile:
+	    return
+
     device = usbdevice()
-    cmd = "dd if={} of={}".format(device, isofile)
-    print("scrivo con il comando {}".format(cmd))
-    # scommenta quando sei sicuro!!!
-    subprocess.check_output(cmd, shell=True)
-    print("scritto su USB")
+    if not device:
+	    return
+
+    #Scrivo la iso
+    cmd = '(pv -n "{}" | /bin/dd of="/dev/{}") 2>&1'.format(isofile, device)
+    cmd2 = 'whiptail --backtitle "{}" --gauge "Please wait..." 7 100 0'.format(TITLE)
+    subprocess.call("{} | {}".format(cmd, cmd2), shell=True)
+
+    #Finito!
+    w = whiptail.Whiptail("Finito!", TITLE, 10, 60)
+    w.alert("Fatto tutto.\nGoditi la tua {}!".format(isofile))
+
+    #Scrivo nel file log
+    logpath = os.path.join("{}/V4V/data/{}".format(V4VPATH,LOGFILE))
+    f = open(logpath, mode='a')    #Open it
+    f.write(isofile + " " + time.asctime() + "\n")
+    f.close()
 
 
 # Funzione DVD
@@ -50,50 +118,58 @@ def dvdwrite():
 
 
 ###Main###
-
 setup()
 while not exit:
-
-    # Imposto Contatore
-    f = file("{}/V4V/data/{}".format(V4VPATH, LOGFILE))
+    # Imposto Contatore (Controlla se il file esiste e in caso lo crea)
+    logpath = os.path.join("{}/V4V/data/{}".format(V4VPATH,LOGFILE))
+    if os.path.exists(logpath):
+        f = open(logpath, mode='r+')    #Open it
+    else:
+        f = open(logpath, mode='w+')    #Create it
     cont = len(f.readlines())
+    f.close()
+
     choice = None
 
-    w = whiptail.Whiptail("Menu Principale", TITLE, 20, 78)
     try:
+        w = whiptail.Whiptail("Menu Principale", TITLE, 20, 78)
         choice = w.menu("Scegli", items=(
             ("1", "Installa un sistema libero su USB"),
             ("2", "Masterizza un sistema libero su CD/DVD (prossimamente!)"),
             ("3", "Qualche info su di noi"),
             ("4", "Aiuto"),
-            ("", ""),
-            ("", ""),
+            ("", ""), 
+            ("", ""), 
             ("", ""),
             (str(cont), "ISO distribuite finora"),
         ), prefix="   ")
     except SystemExit as e:
         if e.code == 1:
-            w1 = whiptail.Whiptail("Password", TITLE, 8, 78)
             try:
+                w1 = whiptail.Whiptail("Password", TITLE, 8, 78)
                 passwd = w1.prompt("Digita la password per uscire.", password=True)
-            except SystemExit as e:
-                pass  # continue
-            else:
-                # otherwise match security password for public place
                 if passwd == PASSWORD:
                     exit = True
+            except SystemExit as e:
+                if e.code == 1:
+                    pass
 
-    raise ValueError(choice)
-    if choice == 1:
+    if choice == "1":
         usbwrite()
-    elif choice == 2:
+    elif choice == "2":
         dvdwrite()
-    elif choice == 3:
-        subprocess.check_output([
-            DIALOG, "--title", TITLE,
-            "--backtitle", TITLE, "--msgbox",
-            file("{}/V4V/data/ABOUT.txt".format(V4VPATH)).read(),
-            12, 60]) # 3>&1 1>&2 2>&3
-    elif choice == 4:
-        print("aiuto")
-        # source $V4VPATH/V4V/functions/HelpDialog.sh
+    elif choice == "3":
+        app = os.path.join("{}/V4V/data/{}".format(V4VPATH,"about"))
+        if os.path.exists(app):
+            f = open(app, mode='r+')
+            about_text = f.read()
+            f.close()
+        else:
+            about_text = "File About non trovato!"
+        f.close()
+
+        w = whiptail.Whiptail("About us", TITLE, 12, 60)
+        w.alert(about_text)
+    elif choice == "4":
+        w = whiptail.Whiptail("Need some help?", TITLE, 10, 30)
+        w.alert("Usa:\nFrecce	 Spostarti\nSpazio	 Selezionare\nInvio	  Confermare")

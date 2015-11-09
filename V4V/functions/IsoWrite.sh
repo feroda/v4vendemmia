@@ -8,7 +8,7 @@ then
 	(pv -n "${dirname}"/"${ISO}" | /bin/dd of="${DEVICE}") 2>&1 | whiptail --backtitle "$TITLE" --gauge "Please wait..." 7 100 0
    	espeak -v it "Fatto tutto. Goditi la tua $ISO!" 2> /dev/null &
       	whiptail --backtitle "$TITLE" --msgbox "Fatto tutto. Goditi la tua $ISO!" 10 40
-       	echo $(date '+%A %W %Y %X') "$HOSTNAME" "$ISO" >> $V4VPATH/V4V/data/$LOGFILE
+       	echo "$HOSTNAME" "$ISO" $(date '+%A %W %Y %X') >> $V4VPATH/V4V/data/$LOGFILE
 else
        	espeak -v it "Paura eh?! Ricorda: meglio un giorno da leoni..." 2>/dev/null &
        	whiptail --backtitle "$TITLE" --msgbox "Paura eh?! Ricorda: meglio un giorno da leoni..." 10 40

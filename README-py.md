@@ -1,10 +1,7 @@
 # Istruzioni per la versione python
 
-- assicurarsi che esista il file `V4V/data/v4vendemmia.log` e nel caso fare il touch
 - installare modulo whiptail per python con `pip install whiptail`
 - eseguire lo script con python2
-
-NOTE: molto del codice non e' ancora implementato
 
 # COME RIFARLO E CAPIRLO?
 
