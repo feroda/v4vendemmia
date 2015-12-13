@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Bootstrap 3, from LayoutIt!</title>
+    <title>V4Vendemmia</title>
 
+    <!--
     <meta name="description" content="Source code generated using layoutit.com">
     <meta name="author" content="LayoutIt!">
+    --!>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -63,53 +65,66 @@
 					</li>
 				</ol>
 				<div class="carousel-inner">
-<?php
-//TODO include "conf.php";
-//
-    $ISO_PATH="/mnt";
-    $isos = [];
-    $c = 0;
-    if ($handle = opendir($ISO_PATH)) {
-        while (false !== ($entry = readdir($handle))) {
-            //TODO filtro per file .iso
-            array_push($isos, $entry);
-echo "cicco";
-            echo '<div class="item ';
-            if ($c == 0) echo 'active';
-            echo '">\n';
-            echo '  <img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg">\n';
-            echo '    <div class="carousel-caption">\n';
-            echo '     <h4> First Thumbnail label </h4>\n';
-            echo '     <p> Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.  </p>\n';
-            echo '    </div>\n';
-            echo '</div>\n';
-            $c+=1;
-        }
-        closedir($handle);
-    }
-?>
-<!--					<div class="item">
-						<img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg">
-						<div class="carousel-caption">
-							<h4>
-								Second Thumbnail label
-							</h4>
-							<p>
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-							</p>
-						</div>
-					</div>
-					<div class="item">
-						<img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg">
-						<div class="carousel-caption">
-							<h4>
-								Third Thumbnail label
-							</h4>
-							<p>
-								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-							</p>
-						</div>
-					</div> -->
+                    <?php
+                        function IsoElement($iso, $active = false)
+                        {
+                            $iso_xml=simplexml_load_file("iso_list.xml");
+
+                            for ($x = 0; $x < count($iso_xml); $x++)
+                            {
+                                if($iso == $iso_xml->iso[$x]->isoname)
+                                {
+                                    if ($active)
+                                        echo '<div class="item active">';
+                                    else
+                                        echo '<div class="item">';
+
+                                    echo '  <img alt="Dist_Img" class="isothumbnail" src="'.$iso_xml->iso[$x]->img.'">
+                                            <div class = "carousel-caption">
+                                                <h4>'.$iso_xml->iso[$x]->name.'</h4>
+                                                <p>'.$iso_xml->iso[$x]->dsc.'</p>
+                                            </div>
+                                        </div>';
+                                    break;
+                                }
+                            }
+                        }
+
+                        function endsWith($haystack, $needle)
+                        {
+                            $length = strlen($needle);
+                            if ($length == 0)
+                                return true;
+                            return (substr($haystack, -$length) === $needle);
+                        }
+
+                        #TODO include "conf.php";
+
+                        $ISO_PATH = "/srv/http/iso";
+                        $isos = [];
+                        $c = 0;
+
+                        if (is_dir($ISO_PATH))
+                        {
+                            if ($handle = opendir($ISO_PATH))
+                            {
+                                while (($entry = readdir($handle)) !== false)
+                                {
+                                    if(EndsWith($entry, ".iso"))
+                                    {
+                                        if($c == 0)
+                                            IsoElement($entry, true);
+                                        else
+                                            IsoElement($entry);
+
+                                        array_push($isos, $entry);
+                                        $c+=1;
+                                    }
+                                }
+                                closedir($handle);
+                            }
+                        }
+                    ?>
 				</div> <a class="left carousel-control" href="#carousel-798590" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-798590" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div>
 		</div>

@@ -1,1 +1,14 @@
-# Empty CSS file for your own CSS
+.isothumbnail
+{
+    width: 100%;
+}
+
+.item
+{
+    height: 780px;
+}
+
+.item active
+{
+    height: 780px;
+}
