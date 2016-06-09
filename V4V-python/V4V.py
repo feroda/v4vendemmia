@@ -9,7 +9,6 @@ import time
 #Definizioni
 TITLE = "V4Vendemmia 0.3-py"   	#Titolo
 PASSWORD = "PDP"            	#Password
-LOGFILE = "v4vendemmia.log"	    #Nome del Log
 
 #Controllo presenza DIR
 try:
@@ -105,8 +104,7 @@ def usbwrite():
     w.alert("Fatto tutto.\nGoditi la tua {}!".format(isofile))
 
     #Scrivo nel file log
-    logpath = os.path.join("{}/V4V/data/{}".format(V4VPATH,LOGFILE))
-    f = open(logpath, mode='a')    #Open it
+    f = open("v4vendemmia.log", mode='a')    #Open it
     f.write(isofile + " " + time.asctime() + "\n")
     f.close()
 
@@ -121,11 +119,10 @@ def dvdwrite():
 setup()
 while not exit:
     # Imposto Contatore (Controlla se il file esiste e in caso lo crea)
-    logpath = os.path.join("{}/V4V/data/{}".format(V4VPATH,LOGFILE))
-    if os.path.exists(logpath):
-        f = open(logpath, mode='r+')    #Open it
+    if os.path.exists("v4vendemmia.log"):
+        f = open("v4vendemmia.log", mode='r+')    #Open it
     else:
-        f = open(logpath, mode='w+')    #Create it
+        f = open("v4vendemmia.log", mode='w+')    #Create it
     cont = len(f.readlines())
     f.close()
 
@@ -159,17 +156,8 @@ while not exit:
     elif choice == "2":
         dvdwrite()
     elif choice == "3":
-        app = os.path.join("{}/V4V/data/{}".format(V4VPATH,"about"))
-        if os.path.exists(app):
-            f = open(app, mode='r+')
-            about_text = f.read()
-            f.close()
-        else:
-            about_text = "File About non trovato!"
-        f.close()
-
         w = whiptail.Whiptail("About us", TITLE, 12, 60)
-        w.alert(about_text)
+        w.alert("PDP Free Software User Group <info@pdp.linux.it>\n\nTributo al admstaff diretto da Renzo Davoli\n\nLicense: GNU Affero GPLv3")
     elif choice == "4":
         w = whiptail.Whiptail("Need some help?", TITLE, 10, 30)
         w.alert("Usa:\nFrecce	 Spostarti\nSpazio	 Selezionare\nInvio	  Confermare")
