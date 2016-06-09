@@ -1,0 +1,48 @@
+html,body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel,.item,.active,
+.carousel-inner,.container-fluid,
+.row,.col-md-12 { height: 100%; }
+
+.isothumbnail { 
+    width:100%;
+    height:100%;
+    background-position:center;
+    background-size:cover; 
+}
+
+.modal {
+    top: 30% !important;
+}
+
+.logo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+}
+
+.usbButton {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    padding: 20px;
+}
+
+.customButton {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 15px;
+}
+
+/* faster sliding speed 
+.carousel-inner > .item {
+    -webkit-transition: 0.3s ease-in-out left;
+    -moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+} */

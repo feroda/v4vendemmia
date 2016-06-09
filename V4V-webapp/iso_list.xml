@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iso_list>
+    <iso>
+        <isoname>ubuntu-16.04-desktop-amd64.iso</isoname>
+        <name>Ubuntu 16.04</name>
+        <img>img/ubuntu.jpg</img>
+        <dsc>Veloce, sicuro e elegantemente semplice, Il sistema operativo Ubuntu è usato da 20 milioni di persone in tutto il mondo ogni giorno.</dsc>
+    </iso>
+    <iso>
+        <isoname>debian-8.3.0-amd64-CD-1.iso</isoname>
+        <name>Debian 8.3</name>
+        <img>img/debian.jpg</img>
+        <dsc>Debian è un sistema operativo multi-architettura per computer, composto interamente da software libero.Sviluppato attraverso la collaborazione di volontari aderenti al Debian Project da ogni parte del mondo, Debian viene distribuito con oltre 43000 pacchetti.</dsc>
+    </iso>
+    <iso>
+        <isoname>archlinux-2016.01.01-dual.iso</isoname>
+        <name>Arch Linux</name>
+        <img>img/arch.png</img>
+        <dsc>Arch Linux è una distribuzione GNU/Linux creata da Judd Vinet secondo la filosofia KISS (Keep It Simple, Stupid). Inizialmente ispirata a CRUX Linux, è conosciuta per essere leggera, veloce, estremamente scalabile e adattabile alle proprie esigenze.</dsc>
+    </iso>
+    <iso>
+        <isoname>kali-linux-2016.1-amd64.iso</isoname>
+        <name>Kali Linux</name>
+        <img>img/kali.jpg</img>
+        <dsc>Kali Linux è una distribuzione basata su Debian GNU/Linux, pensata per l'informatica forense e la sicurezza informatica, in particolare penetration testing, creata e gestita da Offensive Security.</dsc>
+    </iso> 
+    <iso>
+        <isoname>Cr_OS_Linux.i686-2.4.1290.iso</isoname>
+        <name>Chrome OS</name>
+        <img>img/chrome.jpg</img>
+        <dsc>Chromium OS is an open-source project that aims to build an operating system that provides a fast, simple, and more secure computing experience for people who spend most of their time on the web. Here you can review the project's design docs, obtain the source code, and contribute.</dsc>
+    </iso> 
+    <iso>
+        <isoname>Remix_OS_for_PC_64_B2016030106.iso</isoname>
+        <name>Remix OS</name>
+        <img>img/remix.jpg</img>
+        <dsc>Remix OS is a computer operating system for personal computers. It is based on the Android-x86 port of the Android operating system, and allows users to run Android applications on a PC.</dsc>
+    </iso> 
+</iso_list>
