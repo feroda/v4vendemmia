@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Il Progetto &mdash; V4Vendemmia 1.0 documentazione</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="V4Vendemmia 1.0 documentazione" href="index.html"/>
+        <link rel="next" title="7. Conclusioni" href="conclusions.html"/>
+        <link rel="prev" title="5. Cosa abbiamo usato?" href="technologies.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> V4Vendemmia
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduzione: Il progetto V4Vendemmia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freesoftware.html">2. La filosofia del Software Libero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firststeps.html">3. Primi passi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webapp.html">4. Il passo successivo: WebApp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technologies.html">5. Cosa abbiamo usato?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Il Progetto</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#permessi-gnu-linux">6.1. Permessi GNU/Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generalita">6.1.1. Generalità</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-permessi">6.1.2. I Permessi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#client-server">6.2. Client-server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sqlite">6.3. SQLite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conclusions.html">7. Conclusioni</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">V4Vendemmia</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>6. Il Progetto</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/project.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="il-progetto">
+<h1>6. Il Progetto<a class="headerlink" href="#il-progetto" title="Link a questa intestazione">¶</a></h1>
+<p>Durante la realizzazione sono emersi dei problemi e di conseguenza a delle scelte per risolverli.</p>
+<div class="section" id="permessi-gnu-linux">
+<h2>6.1. Permessi GNU/Linux<a class="headerlink" href="#permessi-gnu-linux" title="Link a questa intestazione">¶</a></h2>
+<div class="section" id="generalita">
+<h3>6.1.1. Generalità<a class="headerlink" href="#generalita" title="Link a questa intestazione">¶</a></h3>
+<p>Nell&#8217;ambito di un sistema GNU/Linux tutto è un file, compresi i file speciali che designano i dispositivi. Linux divide i file in diverse categorie:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Directory</li>
+<li>File regolari (programmi, file di configurazione, file di dati, ecc ..)</li>
+<li>File speciale (carattere o tipo di blocco)</li>
+</ul>
+</div></blockquote>
+<p>Il file system per GNU/Linux è organizzato in un albero, non c&#8217;è bisogno di menzionare il nome del disco o la partizione per accedere.</p>
+</div>
+<div class="section" id="i-permessi">
+<h3>6.1.2. I Permessi<a class="headerlink" href="#i-permessi" title="Link a questa intestazione">¶</a></h3>
+<p>In un sistema GNU/Linux, ad ogni file vengono assegnati i permessi per 3 identità:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Il proprietario - è l&#8217;utente che ha creato il file o l&#8217;utente che root ha designato come proprietario</li>
+<li>Il gruppo (non necessariamente il gruppo del proprietario)</li>
+<li>Gli altri (quelli che non fanno parte del gruppo)</li>
+</ul>
+</div></blockquote>
+<p>Per ogni identità (vedi sopra), sono 3 i permessi di accesso:</p>
+<blockquote>
+<div><ul class="simple">
+<li>r - read (permesso di lettura)</li>
+<li>w - write (permesso di scrittura)</li>
+<li>x - execute (permesso di esecuzione)</li>
+</ul>
+</div></blockquote>
+<p>La visualizzazione dei permessi viene rappresentata da una stringa di 9 caratteri, preceduta da un carattere che rappresenta il tipo di file.</p>
+<p>Questi 9 caratteri, raggruppati per 3 (rwx rwx rwx) definiscono i permessi delle 3 identità (proprietario, gruppo e altri).</p>
+<p>Esempio:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">rwxr</span><span class="o">-</span><span class="n">x</span><span class="o">---</span>  <span class="n">USER</span>    <span class="n">GROUP</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Significa:</dt>
+<dd><ul class="first last simple">
+<li>si tratta di un file regolare ( il primo carattere è un trattino -)</li>
+<li>il proprietario ha tutti i permessi (ReadWriteExecute quindi LeggereScrivereEseguire)</li>
+<li>i membri del gruppo hanno i permessi di leggere (il 1° carattere è r) e di eseguire (il 3° carattere è x), invece non hanno il permesso de scrivere (il 2° carattere è un trattino -)</li>
+<li>gli altri non hanno nessun permesso, ne leggere, ne scrivere, ne eseguire (i 3 caratteri sono dei trattini -)</li>
+</ul>
+</dd>
+</dl>
+<p>Per effettuare una scrittura di una ISO su un dispostivo bisogna appartenere a un gruppo speciale chiamato &#8216;disk&#8217;. Di default solo l&#8217;utente ROOT appartiene al quel gruppo.</p>
+<p>Apache ha un utente tutto suo chiamato &#8216;HTTP&#8217; e per questo bisogna aggiungere questo utente al gruppo &#8216;disk&#8217;.</p>
+<p>Questa soluzione semplice e funzionante non è il massimo per il webserver. Se si ha qualche problema di sicurezza e un terzo riesce a caricare uno script, avrebbe i permessi di scrivere su ogni disco, anche quello dove si trova il sistema.</p>
+</div>
+</div>
+<div class="section" id="client-server">
+<h2>6.2. Client-server<a class="headerlink" href="#client-server" title="Link a questa intestazione">¶</a></h2>
+<p>Anche se la webapp è accessibile remotamente il server può scrivere solo su una chiavetta inserita fisicamente nella macchina. Questo permette l&#8217;uso della webapp solo su un singolo computer.</p>
+<p><img alt="local-client-server" src="_images/local-client-server.png" /></p>
+<p>Ma si posso sviluppare soluzioni interessanti con un minimo sforzo.</p>
+<p>Si può fare in modo che gli utenti danno la loro chiavetta a un responsabile che la inserisce sul server e poi da un computer locale scelgono la distro che vogliono. Questo è facilemente realizzare facilmente in un luogo come la bibblioteca dotata di una sala pc.</p>
+<p>Un&#8217;alto può essere di proporre la funzione di base sul server e una funzione di download delle distro ai client remoti.</p>
+</div>
+<div class="section" id="sqlite">
+<h2>6.3. SQLite<a class="headerlink" href="#sqlite" title="Link a questa intestazione">¶</a></h2>
+<p>Come alternativa per conservare i dati avevo pensato a un database, più precisamente un SQLite.</p>
+<p>SQLite è una libreria software scritta in linguaggio C che implementa un DBMS SQLite incorporabile all&#8217;interno di applicazioni.
+Permette di creare una base di dati (comprese tabelle, query, form, report) incorporata in un unico file, togliendo la necessità di altri programmi.
+Ha avuto il maggior sviluppo nel mondo mobile, dove un app non può appogiarsi ad altre e contiene una quantità limitata di dati.</p>
+<p>Ma per V4V ho scelto XML non avendo bisogno di gestire grandi quantità di dati ne di fare query complesse, avevo bisogno di un modo veloce per caricare tutti i dati al primo caricamento della pagina e lasciarli nella cache.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conclusions.html" class="btn btn-neutral float-right" title="7. Conclusioni" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="technologies.html" class="btn btn-neutral" title="5. Cosa abbiamo usato?" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dawid Weglarz &lt;dawid.weglarz95@gmail.com&gt;.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
