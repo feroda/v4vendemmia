@@ -46,6 +46,15 @@ CSS
 Il CSS (Cascading Style Sheets) è un linguaggio usato per definire la formattazione di documenti HTML.
 L'uso dei CSS permette di seprare la parte grafica di un sito dalla parte dei contentuti, permettendo una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo contemporaneamente anche il riutilizzo di codice ed una sua più facile manutenzione.
 
+Esempio ::
+
+    <style>
+        p {
+            text-align: center;
+            color: red;
+        } 
+    </style>
+
 PHP
 ---
 PHP (acronimo ricorsivo di "PHP: Hypertext Preprocessor") è un linguaggio di scripting lato-server che permette di creare pagine web dinamiche.
@@ -66,6 +75,15 @@ XML
 ---
 XML (eXtensible Markup Language) è linguaggio marcatore (Markup Language) estendibile (eXtensible) in quanto permette di creare tag personalizzati, proprio come quelli html, e dare a ciascuno un significato riferito ai contentuti.
 Questo permette di creare una struttra di dati in un semplice file di testo, facilitando molto la lettura dei dati.
+
+Esempio::
+
+    <note>
+        <to>Tove</to>
+        <from>Jani</from>
+        <heading>Reminder</heading>
+        <body>Don`t forget me this weekend!</body>
+    </note>
 
 Bootstrap
 ---------
