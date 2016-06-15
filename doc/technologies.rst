@@ -35,7 +35,7 @@ Ecco un esempio di codice che cambia il colore dello sfondo:
         document.body.style.background = color;
     }
 
-    onload="changeBackground('red');"
+    onload=`changeBackground('red');`
 
 Il codice risulta molto più semplice e immediato, infatti il motto degli sviluppatori jQuery è proprio «write less, do more».
  
@@ -71,6 +71,8 @@ AJAX (Asynchronous JavaScript and XML) è una tecnica di sviluppo software per l
 Questa tecnica si basa su uno scambio di dati in background fra web browser e server, che consente l'aggiornamento dinamico di una pagina web senza esplicito ricaricamento da parte dell'utente.
 AJAX è asincrono nel senso che i dati extra sono richiesti al server e caricati in background senza interferire con il comportamento della pagina esistente.
 
+|ajax-diagram|
+
 `XML <http://www.w3schools.com/xml/default.asp>`_
 -------------------------------------------------
 XML (eXtensible Markup Language) è linguaggio marcatore (Markup Language) estendibile (eXtensible) in quanto permette di creare tag personalizzati, proprio come quelli html, e dare a ciascuno un significato riferito ai contentuti.
@@ -90,3 +92,5 @@ Esempio::
 Bootstrap è una raccolta di strumenti liberi per la creazione di siti e applicazioni per il Web. Essa contiene modelli di progettazione basati su HTML e CSS, sia per la tipografia, che per le varie componenti dell'interfaccia, come moduli, pulsanti e navigazione.
 
 Dalla versione 2.0 supporta anche il responsive web design. Ciò significa che il layout delle pagine web si regola dinamicamente, tenendo conto delle caratteristiche del dispositivo utilizzato, sia esso desktop, tablet o telefono cellulare. A partire dalla versione 3.0, Bootstrap ha adottato il responsive design come impostazione predefinita, sottolineando il suo essere nata come libreria multidispositivo e multipiattaforma.
+
+.. |ajax-diagram| image:: /images/ajax-diagram.png
