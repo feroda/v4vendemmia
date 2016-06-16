@@ -2,7 +2,7 @@ Primi passi
 ===========
 Come primo passo abbiamo scritto su un foglio di carta la logica e l'algoritmo di base. Succesivamente avevamo bisogno di un linguaggio.
 
-Abbiamo scelto il Bash [1]_,un linguaggio di scripting semplice ma molto usato tra i sistemisti GNU/Linux per la sua versatilità e la sua integrazione nel sistemi UNIX e GNU/Linux. Visto che un script Bash gira solo su un terminale, l'interfaccia è molto rudimentale. Per dargli un aspetto che potesse attirare l'occhio del utente abbiamo usato whiptail, un tool che permette di creare delle dialog molto semplici ma chiare.
+Abbiamo scelto il Bash [1]_, un linguaggio di scripting semplice ma molto usato tra i sistemisti GNU/Linux per la sua versatilità e la sua integrazione nei sistemi UNIX e GNU/Linux. Visto che un script Bash gira solo su un terminale, l'interfaccia è abbastanza rudimentale. Per dargli un aspetto che potesse attirare l'occhio del utente abbiamo usato whiptail, un tool che permette di creare delle dialog molto semplici ma chiare.
 
 |v4v-bash|
 

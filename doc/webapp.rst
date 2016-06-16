@@ -8,12 +8,18 @@ Per la realizzazione ho avuto bisogno di approfondire meglio le cose fatte duran
 
 Cos'è una WebApp?
 -----------------
-Una WebApp è un'applicazione accessibile via browser per mezzo di una rete (Intranet, Internet), offrendo determinati servizi all'utente.  
-Questa è una tipica architettura client-server che permette di separare l'applicazione dal sistema operativo, dalle potenzialità del pc e anche dalla neccessità di programmi aggiuntivi, l'unica cosa che serve è un browser e una connessione al server.  
+Una WebApp è un'applicazione accessibile via browser per mezzo di una rete (Intranet, Internet), offrendo determinati servizi all'utente.
+Ormai il mondo web e le tecnologie si sono evolute cosi tanto che le interfaccie web posso competere tranquillamente con quelle desktop che per molti anni sono state l'unica scelta degli sviluppatori.
+
+Le applicazioni web solitamente sono una combianazione di script lato-server (ASP, PHP, etc) and script lato-client (HTML, Javascript, etc).
+Il lato client si occupa di gestire l'interfaccia mentre il lato server si occupa della gestione dei dati e dalla parte logica.
+
+Le webapp posso offire le stesse funzionalità e dara la possibilità di lavora su più piattaforme diverse. Un esempio può essere Google Docs che permette di avere i documenti sincronizzati tra tutti i dispositivi, indipendentemente dal sistema operativo e senza bisogno di installare nulla.
+
+Questo tipo di applicazioni rappresenta perfettamente l'achitettura client-server dove un server offre dei servizi ai vari client. Il client effettua delle richieste che viaggiano attraverso la rete e arrivano al server che la processa e risponde di conseguenza.
 
 |client-server|
 
-Il mondo web si è evoluto cosi tanto che le interfaccie delle webapp posso competere tranquillamente con le interfaccie desktop.
-Qesto modello sta diventanto sempre più usato e molte grandi aziende come Google e Microsoft hanno trasformato i loro applicativi in versione web (es. Google Docs, Office 365).
+Questo è forse il tipo di architettura più usato, lo stesso internet lavora con questa metodo, dove i browser chiedono ai vari webserver delle pagine web.
 
 .. |client-server| image:: /images/client-server.png

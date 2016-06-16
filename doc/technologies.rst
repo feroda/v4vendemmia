@@ -44,7 +44,7 @@ Un'altro importante aspetto della libreria jQuery è quella di implementare la t
 `CSS <http://www.w3schools.com/css/default.asp>`_
 -------------------------------------------------
 Il CSS (Cascading Style Sheets) è un linguaggio usato per definire la formattazione di documenti HTML.
-L'uso dei CSS permette di seprare la parte grafica di un sito dalla parte dei contentuti, permettendo una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo contemporaneamente anche il riutilizzo di codice ed una sua più facile manutenzione.
+L'uso dei CSS permette di seprare la parte grafica di un sito dalla parte dei contentuti, permettendo una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo contemporaneamente anche il riutilizzo del codice ed una più facile manutenzione.
 
 Esempio ::
 
@@ -62,8 +62,11 @@ I file php sono composti da parti di html e blocchi di codice php che verranno e
 
 `Apache <https://httpd.apache.org/docs/2.2/mod/quickreference.html>`_
 ---------------------------------------------------------------------
-Apache è forse il più famoso e anche il più utilizzato dei webserver nel mondo.
-Un webserver è un applicazione che si occupa di prendere le varie richieste dei client e restituire le relative pagine web.
+Apache è forse il più famoso e anche il più utilizzato dei HTTP Server nel mondo.
+
+Quando digiti un URL come 'google.com' questo viene tradotto (da un apposito servizio) in un indirizzo IP che corrisponde a una macchina nel mondo dove gira un webserver che riceverà la tua richiesta e ti restituirà indietro la pagina richiesta.
+
+Ogni pc può essere trasformato in un webserver semplicemente installando un HTTP Server come Apache, ma ce ne sono anche molti altri.
 
 `AJAX <http://www.w3schools.com/ajax/default.asp>`_
 ---------------------------------------------------
