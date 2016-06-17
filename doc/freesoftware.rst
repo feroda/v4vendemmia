@@ -5,10 +5,10 @@ La prima definizione formale di software libero è stata pubblicata dalla FSF [1
 
 Quella definzione, scritta da Richard Stallman, si basa su quatro libertà:
 
-    0. **Eseguire** il programma per qualsiasi scopo.
-    1. **Studiare** come funziona il programma e modificarlo come si desidera.
-    2. **Ridistribuire** e fare copie del programma per aiutare il tuo vicino.
-    3. **Migliorare** il programme e rilasciare le modifiche al pubblico cosi che tutta la community ne può beneficiare.
+    0. **Usare** il programma come si desidera, per qualsiasi scopo.
+    1. **Studiare** come funziona il programma e di modificarlo in modo da adattarlo alle proprie necessità.
+    2. **Ridistribuire** copie del programma in modo da aiutare il prossimo.
+    3. **Migliorare** il programma e distribuirne pubblicamente i miglioramenti da voi apportati, in modo tale che tutta la comunità ne tragga beneficio.
 
 A questo si collega la metodologia dello sviluppo Open source che non consiste solo nel rilascio del codice sorgente assieme al programma sviluppato. 
 
