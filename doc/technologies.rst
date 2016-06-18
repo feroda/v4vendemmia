@@ -44,7 +44,7 @@ Un'altro importante aspetto della libreria jQuery è quella di implementare la t
 `CSS <http://www.w3schools.com/css/default.asp>`_
 -------------------------------------------------
 Il CSS (Cascading Style Sheets) è un linguaggio usato per definire la formattazione di documenti HTML.
-L'uso dei CSS permette di seprare la parte grafica di un sito dalla parte dei contentuti, permettendo una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo contemporaneamente anche il riutilizzo del codice ed una più facile manutenzione.
+L'uso dei CSS permette di separare la parte grafica di un sito dalla parte dei contentuti, permettendo una programmazione più chiara e facile da utilizzare, sia per gli autori delle pagine stesse sia per gli utenti, garantendo contemporaneamente anche il riutilizzo del codice ed una più facile manutenzione.
 
 Esempio ::
 

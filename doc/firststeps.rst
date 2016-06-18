@@ -12,7 +12,7 @@ Successivamente abbiamo deciso di provare a riscriverlo con altro linguaggio. Ab
 
 E' un linguaggio spesso consigliato ai neo-programmatori per la sua chiarezza, infatti python è stato ideato con l'obbiettivo della leggibilità. Persino un indentazione sbagliata viene considerata un errore.
 
-Il risultato di questa versione a livello visivo era lo stesso avendo usato sempre whiptail per gestire le dialog. Anche l'algormitmo è rimasto lo stesso, proprio per far vedere come il linguaggio sia indipendente dal algoritmo.
+Il risultato di questa versione a livello visivo era lo stesso avendo usato sempre whiptail per gestire le dialog. Anche l'algoritmo è rimasto lo stesso, proprio per far vedere come il linguaggio sia indipendente dal algoritmo.
 
 
 .. [1] https://www.gnu.org/software/bash/
