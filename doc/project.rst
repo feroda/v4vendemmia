@@ -57,9 +57,9 @@ Anche se la webapp è accessibile remotamente il server può scrivere solo su un
 
 Ma si posso sviluppare soluzioni interessanti con un minimo sforzo. 
 
-Si può fare in modo che gli utenti danno la loro chiavetta a un responsabile che la inserisce sul server e poi da un computer locale scelgono la distro che vogliono. Questo è facilemente realizzare facilmente in un luogo come la bibblioteca dotata di una sala pc.
+Si può fare in modo che gli utenti danno la loro chiavetta a un responsabile che la inserisce sul server e poi da un computer locale scelgono la distro che vogliono. Questo è facilmente realizzabile in un luogo come la biblioteca dotata di una sala pc.
 
-Un'alto può essere di proporre la funzione di base sul server e una funzione di download delle distro ai client remoti.
+Un altro può essere di proporre la funzione di base sul server e una funzione di download delle distro ai client remoti.
 
 
 SQLite
@@ -70,6 +70,6 @@ SQLite è una libreria software scritta in linguaggio C che implementa un DBMS S
 Permette di creare una base di dati (comprese tabelle, query, form, report) incorporata in un unico file, togliendo la necessità di altri programmi.  
 Ha avuto il maggior sviluppo nel mondo mobile, dove un app non può appogiarsi ad altre e contiene una quantità limitata di dati. 
 
-Ma per V4V ho scelto XML non avendo bisogno di gestire grandi quantità di dati ne di fare query complesse, avevo bisogno di un modo veloce per caricare tutti i dati al primo caricamento della pagina e lasciarli nella cache.
+Ma per V4V ho scelto XML non avendo bisogno di gestire grandi quantità di dati ne di fare query complesse, ma di un modo veloce per caricare tutti i dati al primo caricamento della pagina e lasciarli nella cache.
 
 .. |local-client-server| image:: /images/local-client-server.png
