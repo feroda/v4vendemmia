@@ -8,13 +8,14 @@ Per la realizzazione ho avuto bisogno di approfondire meglio le cose fatte duran
 
 Cos'è una WebApp?
 -----------------
-Una WebApp è un'applicazione accessibile via browser per mezzo di una rete (Intranet, Internet), offrendo determinati servizi all'utente.
+Una WebApp è un'applicazione accessibile via browser per mezzo di una rete (intranet, internet), offrendo determinati servizi all'utente.
 Ormai il mondo web e le tecnologie si sono evolute cosi tanto che le interfaccie web posso competere tranquillamente con quelle desktop che per molti anni sono state l'unica scelta degli sviluppatori.
 
 Le applicazioni web solitamente sono una combinazione di script lato-server (ASP, PHP, etc) e script lato-client (HTML, Javascript, etc).
 Il lato client si occupa di gestire l'interfaccia mentre il lato server si occupa della gestione dei dati e dalla parte logica.
 
 Le webapp posso offrire le stesse funzionalità del desktop ma danno anche la possibilità di lavorare su più piattaforme diverse. Un esempio può essere Google Docs che permette di avere i documenti sincronizzati tra più dispositivi, indipendentemente dal loro sistema operativo e senza bisogno di installare nulla.
+
 
 Questo tipo di applicazioni rappresenta perfettamente l'achitettura client-server dove un server offre dei servizi ai vari client. 
 

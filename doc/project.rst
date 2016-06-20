@@ -1,6 +1,6 @@
 Il Progetto
 ===========
-Durante la realizzazione sono emersi dei problemi e di conseguenza a delle scelte per risolverli.
+Durante la realizzazione sono emersi dei problemi e di conseguenza delle scelte per risolverli.
 
 Permessi GNU/Linux
 ------------------
