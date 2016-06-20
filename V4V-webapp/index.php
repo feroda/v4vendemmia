@@ -57,11 +57,11 @@
           <!-- Function Buttons -->
           <?php
             if($custom_tab)
-              echo '<a id="modal-custom" href="#modal-container-custom" data-toggle="modal" class="customButton">
+              echo '<a id="modal-custom" href="#modal-container-custom" data-toggle="modal" class="customButton highlightit">
                       <img src="icons/calendar.png" style="width:75px"/>
                     </a>';
           ?>
-          <a id="modal-devs" href="#modal-container-devs" data-toggle="modal" onclick=selectIso() class="usbButton">
+          <a id="modal-devs" href="#modal-container-devs" data-toggle="modal" onclick=selectIso() class="usbButton highlightit">
             <img src="icons/usb.png" style="width:150px"/>
           </a>
 
