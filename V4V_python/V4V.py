@@ -1,24 +1,26 @@
 #!/usr/bin/env python
-
 import sys
 import os
 import subprocess
 import whiptail
 import time
+from utils import size_giga, get_devs
 
-#Definizioni
-TITLE = "V4Vendemmia 0.3-py"   	#Titolo
-PASSWORD = "PDP"            	#Password
+# Definizioni
+TITLE = "V4Vendemmia 0.3-py"
+PASSWORD = "PDP"
 
-#Controllo presenza DIR
+# Controllo presenza DIR
 try:
-    dirname=sys.argv[1]
+    dirname = sys.argv[1]
 except IndexError:
     sys.exit("Errore!\nMi serve una DIR con le ISO!")
 
-V4VPATH = os.path.abspath(os.path.dirname(__file__)) 		#Cartella V4V
-olddev= ''
+# Cartella V4V
+V4VPATH = os.path.abspath(os.path.dirname(__file__))
+olddev = ''
 exit = False
+
 
 # Setting up things
 def setup():
@@ -27,33 +29,37 @@ def setup():
     if not os.geteuid() == 0:
         sys.exit("Errore!\nHo bisogno dei permessi di ROOT!")
 
-    #Dev non scrivibili
+    # Dev non scrivibili
     w = whiptail.Whiptail("Attenzione!", TITLE, 8, 70)
-    w.alert("Assicurati di NON aver inserito la chiavetta su cui vuoi che gli utenti scrivano i sistemi operativi!")   
-    olddev = subprocess.check_output("lsblk -d -n -o NAME", shell=True).split('\n') 
+    w.alert("Assicurati di NON aver inserito la chiavetta su cui vuoi che gli utenti scrivano i sistemi operativi!")
+    olddev = get_devs()
 
-#Funzione scelta iso
+
+# Funzione scelta iso
 def isochoice():
-    isos = [ iso for iso in os.listdir(dirname) if iso.endswith('.iso') ]
+    isos = [iso for iso in os.listdir(dirname) if iso.endswith('.iso')]
     items = []
     choice = []
     isofile = ''
+    n_length = 0
 
-    #Costruisco lista iso da visualizzare e calcolo dimesione
+    # Costruisco lista iso da visualizzare e calcolo dimesione
     for i, iso in enumerate(isos, start=1):
-        size = round(os.path.getsize(os.path.join(dirname,iso))/(1024*1024*1024.0),1)
-        items.append((iso, str(size)+"GB", "OFF")),size
+        size = size_giga(os.path.join(dirname, iso))
+        items.append((iso, str(size)+"GB", "OFF")), size
+        if n_length < len(iso):
+            n_length = len(iso)
 
     try:
-        #Controllo se ci sono delle iso
+        # Controllo se ci sono delle iso
         if not items:
             w = whiptail.Whiptail("Errore!", TITLE, 8, 50)
-            w.alert("Nessuna ISO trovata!\nAssicurati che la directory sia giusta.")
+            w.alert("Nessuna ISO trovata!\n Assicurati che la directory sia giusta.")
             raise SystemExit
 
         while not choice:
-            w = whiptail.Whiptail("Scelta Iso", TITLE, 20, 60)
-            choice = w.radiolist("Scegli il sistema da portarti a casa:" , items=items, prefix="     ")
+            w = whiptail.Whiptail("Scelta Iso", TITLE, 20, n_length+25)
+            choice = w.radiolist("Scegli il sistema da portarti a casa:", items=items, prefix="     ")
     except SystemExit as e:
         if e.code == 1:
             pass
@@ -61,50 +67,52 @@ def isochoice():
         isofile = os.path.join(dirname, choice[0])
     return isofile
 
-# Funzione Dev dove scrivere 
+
+# Funzione Dev dove scrivere
 def usbdevice():
     mydev = []
     rv = ''
- 
-    try: 
+
+    try:
         while not mydev:
             w = whiptail.Whiptail("Errore!", TITLE, 10, 50)
             if w.confirm("Inserisci la tua chiavetta USB! \n\nATTENZIONE il contenuto verra' cancellato!"):
-                dev = subprocess.check_output("lsblk -d -n -o NAME", shell=True).split('\n')
+                dev = get_devs()
                 mydev = set(dev) - set(olddev)
             else:
-                raise SystemExit 
+                raise SystemExit
 
-        rv =  mydev.pop()
+        rv = mydev.pop()
         if mydev:
             w = whiptail.Whiptail("Attenzione!", TITLE, 10, 50)
-            w.alert("Ho notato che hai inserito piu' di una chiavetta!\nRimuovi l'ultima che hai inserito e premi OK.")
+            w.alert("Ho notato che hai inserito piu' di una chiavetta!\n Rimuovi l'ultima che hai inserito e premi OK.")
     except SystemExit as e:
         if e.code == 1:
             pass
     return rv
 
+
 # Funzione USB
 def usbwrite():
     isofile = isochoice()
     if not isofile:
-	    return
+        return None
 
     device = usbdevice()
     if not device:
-	    return
+        return None
 
-    #Scrivo la iso
+    # Scrivo la iso
     cmd = '(pv -n "{}" | /bin/dd bs=4M of="/dev/{}") 2>&1'.format(isofile, device)
     cmd2 = 'whiptail --backtitle "{}" --gauge "Please wait..." 7 100 0'.format(TITLE)
     subprocess.call("{} | {}".format(cmd, cmd2), shell=True)
 
-    #Finito!
+    # Finito!
     w = whiptail.Whiptail("Finito!", TITLE, 10, 60)
     w.alert("Fatto tutto.\nGoditi la tua {}!".format(isofile))
 
-    #Scrivo nel file log
-    f = open("v4vendemmia.log", mode='a')    #Open it
+    # Scrivo nel file log
+    f = open("v4vendemmia.log", mode='a')
     f.write(isofile + " " + time.asctime() + "\n")
     f.close()
 
@@ -115,14 +123,16 @@ def dvdwrite():
     pass
 
 
-###Main###
+# Main
 setup()
 while not exit:
     # Imposto Contatore (Controlla se il file esiste e in caso lo crea)
     if os.path.exists("v4vendemmia.log"):
-        f = open("v4vendemmia.log", mode='r+')    #Open it
+        # Open it
+        f = open("v4vendemmia.log", mode='r+')
     else:
-        f = open("v4vendemmia.log", mode='w+')    #Create it
+        # Create it
+        f = open("v4vendemmia.log", mode='w+')
     cont = len(f.readlines())
     f.close()
 
@@ -135,8 +145,8 @@ while not exit:
             ("2", "Masterizza un sistema libero su CD/DVD (prossimamente!)"),
             ("3", "Qualche info su di noi"),
             ("4", "Aiuto"),
-            ("", ""), 
-            ("", ""), 
+            ("", ""),
+            ("", ""),
             ("", ""),
             (str(cont), "ISO distribuite finora"),
         ), prefix="   ")
@@ -160,4 +170,4 @@ while not exit:
         w.alert("PDP Free Software User Group <info@pdp.linux.it>\n\nTributo al admstaff diretto da Renzo Davoli\n\nLicense: GNU Affero GPLv3")
     elif choice == "4":
         w = whiptail.Whiptail("Need some help?", TITLE, 10, 30)
-        w.alert("Usa:\nFrecce	 Spostarti\nSpazio	 Selezionare\nInvio	  Confermare")
+        w.alert("Usa:\nFrecce    Spostarti\nSpazio    Selezionare\nInvio     Confermare")
