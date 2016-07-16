@@ -103,7 +103,7 @@ def usbwrite():
         return None
 
     # Scrivo la iso
-    cmd = '(pv -n "{}" | /bin/dd bs=4M of="/dev/{}") 2>&1'.format(isofile, device)
+    cmd = '(pv -n "{}" | /bin/dd of="/dev/{}") 2>&1'.format(isofile, device)
     cmd2 = 'whiptail --backtitle "{}" --gauge "Please wait..." 7 100 0'.format(TITLE)
     subprocess.call("{} | {}".format(cmd, cmd2), shell=True)
 

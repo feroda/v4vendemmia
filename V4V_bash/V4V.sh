@@ -99,7 +99,7 @@ USB ()
     whiptail --backtitle "$TITLE" --yesno "Stai per scrivere l'immagine $iso sul device $DEVICE. Sei sicuro?" 12 45 3>&1 1>&2 2>&3
     if [ $? == "0" ]
     then
-        (pv -n "${dirname}"/"${iso}" | /bin/dd bs=4M of="${DEVICE}") 2>&1 | whiptail --backtitle "$TITLE" --gauge "Please wait..." 7 100 0
+        (pv -n "${dirname}"/"${iso}" | /bin/dd of="${DEVICE}") 2>&1 | whiptail --backtitle "$TITLE" --gauge "Please wait..." 7 100 0
         espeak -v it "Fatto tutto. Goditi la tua $iso!" 2> /dev/null &
         whiptail --backtitle "$TITLE" --msgbox "Fatto tutto. Goditi la tua $iso!" 10 40
         echo "$HOSTNAME" "$iso" $(date '+%A %W %Y %X') >> "v4vendemmia.log"
