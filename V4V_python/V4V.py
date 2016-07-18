@@ -31,7 +31,8 @@ def setup():
 
     # Dev non scrivibili
     w = whiptail.Whiptail("Attenzione!", TITLE, 8, 70)
-    w.alert("Assicurati di NON aver inserito la chiavetta su cui vuoi che gli utenti scrivano i sistemi operativi!")
+    w.alert("Assicurati di NON aver inserito la chiavetta su "
+            + "cui vuoi che gli utenti scrivano i sistemi operativi!")
     olddev = get_devs()
 
 
@@ -54,12 +55,14 @@ def isochoice():
         # Controllo se ci sono delle iso
         if not items:
             w = whiptail.Whiptail("Errore!", TITLE, 8, 50)
-            w.alert("Nessuna ISO trovata!\n Assicurati che la directory sia giusta.")
+            w.alert("Nessuna ISO trovata!\n Assicurati\
+                    che la directory sia giusta.")
             raise SystemExit
 
         while not choice:
             w = whiptail.Whiptail("Scelta Iso", TITLE, 20, n_length+25)
-            choice = w.radiolist("Scegli il sistema da portarti a casa:", items=items, prefix="     ")
+            choice = w.radiolist("Scegli il sistema da portarti a casa:",
+                                 items=items, prefix="     ")
     except SystemExit as e:
         if e.code == 1:
             pass
@@ -76,7 +79,8 @@ def usbdevice():
     try:
         while not mydev:
             w = whiptail.Whiptail("Errore!", TITLE, 10, 50)
-            if w.confirm("Inserisci la tua chiavetta USB! \n\nATTENZIONE il contenuto verra' cancellato!"):
+            if w.confirm("Inserisci la tua chiavetta USB! \n\n"
+                         + "ATTENZIONE il contenuto verra' cancellato!"):
                 dev = get_devs()
                 mydev = set(dev) - set(olddev)
             else:
@@ -85,7 +89,8 @@ def usbdevice():
         rv = mydev.pop()
         if mydev:
             w = whiptail.Whiptail("Attenzione!", TITLE, 10, 50)
-            w.alert("Ho notato che hai inserito piu' di una chiavetta!\n Rimuovi l'ultima che hai inserito e premi OK.")
+            w.alert("Ho notato che hai inserito piu' di una chiavetta!\n"
+                    + "Rimuovi l'ultima che hai inserito e premi OK.")
     except SystemExit as e:
         if e.code == 1:
             pass
@@ -104,7 +109,7 @@ def usbwrite():
 
     # Scrivo la iso
     cmd = '(pv -n "{}" | /bin/dd of="/dev/{}") 2>&1'.format(isofile, device)
-    cmd2 = 'whiptail --backtitle "{}" --gauge "Please wait..." 7 100 0'.format(TITLE)
+    cmd2 = 'whiptail --gauge "Please wait..." 7 100 0'
     subprocess.call("{} | {}".format(cmd, cmd2), shell=True)
 
     # Finito!
@@ -154,7 +159,8 @@ while not exit:
         if e.code == 1:
             try:
                 w1 = whiptail.Whiptail("Password", TITLE, 8, 78)
-                passwd = w1.prompt("Digita la password per uscire.", password=True)
+                passwd = w1.prompt("Digita la password per uscire.",
+                                   password=True)
                 if passwd == PASSWORD:
                     exit = True
             except SystemExit as e:
@@ -167,7 +173,10 @@ while not exit:
         dvdwrite()
     elif choice == "3":
         w = whiptail.Whiptail("About us", TITLE, 12, 60)
-        w.alert("PDP Free Software User Group <info@pdp.linux.it>\n\nTributo al admstaff diretto da Renzo Davoli\n\nLicense: GNU Affero GPLv3")
+        w.alert("PDP Free Software User Group <info@pdp.linux.it>\n\n"
+                + "Tributo al admstaff diretto da Renzo Davoli\n\n"
+                + "License: GNU Affero GPLv3")
     elif choice == "4":
         w = whiptail.Whiptail("Need some help?", TITLE, 10, 30)
-        w.alert("Usa:\nFrecce    Spostarti\nSpazio    Selezionare\nInvio     Confermare")
+        w.alert("Usa:\nFrecce    Spostarti\n"
+                + "Spazio    Selezionare\nInvio     Confermare")
