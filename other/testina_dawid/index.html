@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>V4Vendemmia</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+<div class="theme-font-opensans theme-color-silver-green" style="width: 100%; height: 100%;">
+    <div class="reveal">
+        <div class="slides">
+            <section data-background-color="#888888" class="has-light-background">
+                <div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 283px; height: auto;">
+                    <div style="z-index: 11; text-align: center;" class="sl-block-content">
+                        <h1>
+                            <span style="font-size:1.4em">V4Vendemmia</span>
+                        </h1>
+                    </div>
+                </div>
+                <div style="min-width: 30px; min-height: 30px; width: 206px; height: 206px; left: 720px; top: 420px;" data-block-type="image" class="sl-block">
+                    <div style="z-index: 12;" class="sl-block-content">
+                        <img data-src="img/logo.png" data-natural-height="900" data-natural-width="900" style=""/>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div style="height: auto; min-width: 30px; min-height: 30px; width: 498px; left: 0px; top: 103px;" data-block-type="text" class="sl-block">
+                    <div style="z-index: 11;" class="sl-block-content">
+                        <h2 style="text-align: left;">Sommario</h2>
+                    </div>
+                </div>
+                <div style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 0px; top: 229px;" data-block-type="text" class="sl-block">
+                    <div style="z-index: 12;" class="sl-block-content">
+                        <ol>
+                            <li>
+                                <h3>&nbsp;Cos'è V4Vendemmia?</h3>
+                            </li>
+                            <li>
+                                <h3>&nbsp;Prime versioni</h3>
+                            </li>
+                            <li>
+                                <h3>&nbsp;WebApp</h3>
+                            </li>
+                            <li>
+                                <h3>&nbsp;Filosofia del software libero</h3>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <div style="min-width: 30px; min-height: 30px; width: 242.667px; height: 700px; left: 717px; top: 0px;" data-block-type="image" class="sl-block">
+                    <div style="z-index: 13;" class="sl-block-content">
+                        <img data-src="img/pila_libri.png" data-natural-height="900" data-natural-width="312" style=""/>
+                    </div>
+                </div>
+            </section>
+            <section class="stack">
+                <section>
+                    <div class="sl-block" data-block-type="text" style="width: 422px; left: 80px; top: 89px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 10;">
+                            <h3>
+                                <span style="font-size:1.0em">Cos'è V4Vendemmia?</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 210px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 11;">
+                            <p>
+                                <span style="font-size:1.0em">V4Vendemmia è un progetto nato all'interno del Makerspace di Fabriano e consiste nella realizzazione di un software che permette di creare una postazione che da la possibilità agli utenti di portarsi a casa una distro GNU/Linux in modo facile e intuitivo.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 453.333px; height: 280px; left: 506.667px; top: 420px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 13;" class="sl-block-content">
+                            <img data-src="img/makespace.png" data-natural-height="567" data-natural-width="918" style=""/>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-color="rgb(145,185,12)" data-background-image="img/footer-banner.jpg" data-background-size="cover" class="has-light-background">
+                    <div class="sl-block" data-block-type="text" style="width: 422px; left: 80px; top: 66px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 11;">
+                            <h2>Motivazioni</h2>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 280px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 12;">
+                            <p>Varie motivazioni ci hanno spinto a realizzare questo progetto. Una sicuramente è quella di aiutare l'utente medio che vuole passare a un sistema GNU/Linux ma magari non dispone della banda larga o non riesce a farlo da solo.</p>
+                        </div>
+                    </div>
+                    <div style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 210px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 13; text-align: left;" class="sl-block-content">
+                            <h3>Utilità</h3>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-image="img/books1.jpg" data-background-size="cover" data-background-color="rgb(203,196,187)" class="has-light-background">
+                    <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 222px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 12; color: rgb(0, 0, 0); background-color: transparent;">
+                            <p>Il progetto oltre alla sua utilità per l'utente è anche didattico. Il nostro obbiettivo era di scrivere l'algoritmo una sola volta e poi realizzarlo in diversi linguaggi.</p>
+                        </div>
+                    </div>
+                    <div style="height: auto; width: 600px; left: 80px; top: 159px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 13; text-align: left;" class="sl-block-content">
+                            <h3>Didattica</h3>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section class="stack">
+                <section data-background-color="rgb(246,246,244)" data-background-image="img/programming.jpg" class="has-light-background">
+                    <div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 252px; height: auto;">
+                        <div class="sl-block-content">
+                            <h1>Prime versioni</h1>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-image="img/bash.png" data-background-size="initial" data-background-color="rgb(0,1,0)" class="has-dark-background">
+                    <div class="sl-block" data-block-type="text" style="width: 410px; left: 80px; top: 173px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; color: rgb(0, 255, 0);">
+                            <h2>Bash</h2>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 272px; height: auto;">
+                        <div dir="ui" class="sl-block-content" style="text-align: left; color: rgb(0, 255, 0);">
+                            <p>Bash è un linguaggio di scripting semplice ma molto popolare per la sua versatilità e la sua integrazione nel sistemi GNU/Linux.</p>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-size="initial" data-background-color="#ffffff" class="has-light-background">
+                    <div class="sl-block" data-block-type="text" style="width: 410px; left: 80px; top: 173px; height: auto;">
+                        <div class="sl-block-content" style="text-align: left; z-index: 10;">
+                            <h2>Python</h2>
+                        </div>
+                    </div>
+                    <div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 292px; height: auto;">
+                        <div dir="ui" class="sl-block-content" style="text-align: left; color: rgb(0, 0, 0); z-index: 11;">
+                            <p>Python è un linguaggio di programmazione molto popolare e consigliato ai neo-programmatori per la sua semplicità e potenza.</p>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 248px; height: 248px; left: 712px; top: 452px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 0;" class="sl-block-content">
+                            <img data-src="img/Python-logo-notext.svg.png" data-natural-height="900" data-natural-width="900" style=""/>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-color="rgb(53,52,175)" data-background-image="img/v4v-bash.png" class="has-dark-background"></section>
+            </section>
+            <section data-background-image="img/web-applications.jpg" data-background-size="contain" data-background-color="#ffffff" class="has-light-background">
+                <div class="sl-block" data-block-type="text" style="width: 320px; left: 320px; top: 329px; height: auto;">
+                    <div style="z-index: 10;" class="sl-block-content">
+                        <h1>WebApp</h1>
+                    </div>
+                </div>
+            </section>
+            <section class="stack">
+                <section>
+                    <div style="height: auto; min-width: 30px; min-height: 30px; width: 640px; left: 80px; top: 89px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 11; text-align: left;" class="sl-block-content">
+                            <h3>Cos'è una WebApp?</h3>
+                        </div>
+                    </div>
+                    <div style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 202px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 12; text-align: left;" class="sl-block-content">
+                            <p>Una WebApp è un’applicazione accessibile via browser per mezzo di internet, offrendo determinati servizi all’utente.</p>
+                            <p>(Google Docs, Webmail...)</p>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 560px; height: 358.974px; left: 400px; top: 341px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 13;" class="sl-block-content">
+                            <img data-src="img/internet.png" data-natural-height="900" data-natural-width="1404" style=""/>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div style="height: auto; min-width: 30px; min-height: 30px; width: 640px; left: 160px; top: 19px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 11;" class="sl-block-content">
+                            <h3>Client-side</h3>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 320px; height: 320px; left: 0px; top: 99.5px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 12;" class="sl-block-content">
+                            <img data-src="img/HTML5_Logo.png" data-natural-height="512" data-natural-width="512" style=""/>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 191.56px; height: 272px; left: 768px; top: 64px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 13;" class="sl-block-content">
+                            <img data-src="img/CSS3_Logo.png" data-natural-height="727" data-natural-width="512" style=""/>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 350px; height: 350px; left: 130px; top: 350px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 14;" class="sl-block-content">
+                            <img data-src="img/jquery_logo.png" data-natural-height="736" data-natural-width="736" style=""/>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 360px; height: 181.236px; left: 346px; top: 210px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 15;" class="sl-block-content">
+                            <img data-src="img/ajax.png" data-natural-height="220" data-natural-width="437" style=""/>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 231.964px; height: 233px; left: 632px; top: 467px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 16;" class="sl-block-content">
+                            <img data-src="img/bootstrap-logo.png" data-natural-height="900" data-natural-width="896" style=""/>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div style="height: auto; width: 640px; left: 160px; top: 19px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 11;" class="sl-block-content">
+                            <h3>Server-side</h3>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 480px; height: 254.4px; left: 445px; top: 96px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 12;" class="sl-block-content">
+                            <img data-src="img/php-logo.png" data-natural-height="265" data-natural-width="500" style=""/>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 272px; height: 272px; left: 480px; top: 424px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 13;" class="sl-block-content">
+                            <img data-src="img/XML_logo.png" data-natural-height="800" data-natural-width="800" style=""/>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 360px; height: 360px; left: 0px; top: 210px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 14;" class="sl-block-content">
+                            <img data-src="img/apache-logo.png" data-natural-height="350" data-natural-width="350" style=""/>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section class="stack">
+                <section>
+                    <div style="height: auto; width: 600px; left: 0px; top: 66px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 11;" class="sl-block-content">
+                            <h2>Problematiche e considerazioni</h2>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 788px; height: 525.333px; left: 172px; top: 175px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 12;" class="sl-block-content">
+                            <img data-src="img/Home-Simpson-Thinking-Vector-Image.png" data-natural-height="680" data-natural-width="1020" style=""/>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div style="height: auto; width: 400px; left: 560px; top: 229px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 11;" class="sl-block-content">
+                            <h3>Scrittura USB</h3>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 540.219px; height: 392px; left: 0px; top: 140px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 12;" class="sl-block-content">
+                            <img data-src="img/usb-problem.png" data-natural-height="402" data-natural-width="554" style=""/>
+                        </div>
+                    </div>
+                    <div style="height: auto; min-width: 30px; min-height: 30px; width: 400px; left: 560px; top: 307px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 13;" class="sl-block-content">
+                            <p>Il server può scrivere solo su</p>
+                            <p>una chiavetta "locale".</p>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div style="height: auto; width: 640px; left: 160px; top: 136px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 11;" class="sl-block-content">
+                            <h2>SQLite o XML?</h2>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 350px; height: 350px; left: 50px; top: 280px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 12;" class="sl-block-content">
+                            <img data-src="img/256px-Sqlite-square-icon.svg.png" data-natural-height="256" data-natural-width="256" style=""/>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 350px; height: 350px; left: 560px; top: 280px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 13;" class="sl-block-content">
+                            <img data-src="img/XML_logo.png" data-natural-height="800" data-natural-width="800" style=""/>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section class="stack">
+                <section>
+                    <div style="height: auto; width: 493px; left: 467px; top: 304px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 12;" class="sl-block-content">
+                            <h2>La filosofia del software libero</h2>
+                        </div>
+                    </div>
+                    <div style="min-width: 30px; min-height: 30px; width: 567.6px; height: 645px; left: 0px; top: 55px;" data-block-type="image" class="sl-block">
+                        <div style="z-index: 11;" class="sl-block-content">
+                            <img data-src="img/Gnulinux.svg.png" data-natural-height="900" data-natural-width="792" style=""/>
+                        </div>
+                    </div>
+                    <div style="height: auto; min-width: 30px; min-height: 30px; width: 480px; left: 0px; top: 661px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 13; text-align: left;" class="sl-block-content">
+                            <p>
+                                <span style="font-size:0.5em">Fonte: https://www.gnu.org/philosophy/free-sw.html</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-image="img/lego.png" data-background-size="contain">
+                    <div style="height: auto; width: 400px; left: 80px; top: 280px;" data-block-type="text" class="sl-block">
+                        <div style="z-index: 11; text-align: left;" class="sl-block-content">
+                            <h2>0. Utilizzo</h2>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-image="img/books-education-school-literature-48126.jpeg" data-background-color="rgb(240,231,228)" class="has-light-background">
+                    <div style="height: auto; width: 400px; left: 0px; top: 280px;" data-block-type="text" class="sl-block">
+                        <div dir="ui" style="z-index: 11;" class="sl-block-content">
+                            <h2>1. Studio</h2>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-image="img/giveback.jpg" data-background-color="rgb(112,82,52)" class="has-dark-background">
+                    <div style="height: auto; width: 480px; left: 80px; top: 276px;" data-block-type="text" class="sl-block">
+                        <div dir="ui" style="z-index: 11; color: rgb(255, 255, 255); text-align: left;" class="sl-block-content">
+                            <h2>2. 
+                                <strong>Ridistribuire</strong>
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+                <section data-background-image="img/Tools.jpg" data-background-color="rgb(182,152,110)" class="has-light-background">
+                    <div style="height: auto; width: 560px; left: 80px; top: 280px;" data-block-type="text" class="sl-block">
+                        <div dir="ui" style="z-index: 11; color: rgb(255, 255, 255); text-align: left;" class="sl-block-content">
+                            <h2>3. 
+                                <strong>Migliorare</strong>
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <div style="min-width: 30px; min-height: 30px; width: 420px; height: 420px; left: 540px; top: 280px;" data-block-type="image" class="sl-block">
+                    <div style="z-index: 11;" class="sl-block-content">
+                        <img data-src="img/github.png" data-natural-height="560" data-natural-width="560" style=""/>
+                    </div>
+                </div>
+                <div style="height: auto; min-width: 30px; min-height: 30px; width: 720px; left: 0px; top: 70px;" data-block-type="text" class="sl-block">
+                    <div style="z-index: 12;" class="sl-block-content">
+                        <h3>Tutto il codice e la documentazione è disponibile su Github.</h3>
+                        <p>&nbsp;</p>
+                        <p>
+                            <span style="font-size:0.7em">https://github.com/feroda/v4vendemmia</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div style="height: auto; width: 960px; left: 0px; top: 301px;" data-block-type="text" class="sl-block">
+                    <div dir="ui" style="z-index: 11;" class="sl-block-content">
+                        <h1>Grazie per l'attenzione</h1>
+                    </div>
+                </div>
+                <div style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 0px; top: 661px;" data-block-type="text" class="sl-block">
+                </div>
+                <div style="min-width: 30px; min-height: 30px; width: 140px; height: 140px; left: 820px; top: 560px;" data-block-type="image" class="sl-block">
+                    <div style="z-index: 13;" class="sl-block-content">
+                        <img data-src="img/logo.png" data-natural-height="900" data-natural-width="900" style=""/>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                center: false,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
