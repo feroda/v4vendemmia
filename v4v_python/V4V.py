@@ -141,14 +141,18 @@ while not exit:
     try:
         w = whiptail.Whiptail("Menu Principale", TITLE, 20, 78)
         choice = w.menu("Scegli", items=(
-            ("1", "Installa un sistema libero su USB"),
-            ("2", "Qualche info su di noi"),
-            ("3", "Aiuto"),
+            ("Usa:", ""),
+            ("", ""),
+            ("Frecce", "Spostarti"),
+            ("Spazio", "Selezionare"),
+            ("Invio", "Confermare"),
+            ("", ""),
+            ("[1]", "Installa un sistema libero su USB"),
+            ("[2]", "Qualche info su di noi"),
             ("", ""),
             ("", ""),
-            ("", ""),
-            (str(cont), "ISO distribuite finora"),
-        ), prefix="   ")
+            ("ISO distribuite finora", str(cont)),
+        ), prefix="  ")
     except SystemExit as e:
         if e.code == 1:
             try:
@@ -161,14 +165,10 @@ while not exit:
                 if e.code == 1:
                     pass
 
-    if choice == b"1":
+    if choice == b"[1]":
         usbwrite()
-    elif choice == b"2":
+    elif choice == b"[2]":
         w = whiptail.Whiptail("About us", TITLE, 12, 60)
         w.alert("PDP Free Software User Group <info@pdp.linux.it>\n\n"
                 + "Tributo al admstaff diretto da Renzo Davoli\n\n"
                 + "License: GNU Affero GPLv3")
-    elif choice == b"3":
-        w = whiptail.Whiptail("Need some help?", TITLE, 10, 30)
-        w.alert("Usa:\nFrecce    Spostarti\n"
-                + "Spazio    Selezionare\nInvio     Confermare")
