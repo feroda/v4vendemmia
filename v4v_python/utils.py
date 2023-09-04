@@ -22,4 +22,4 @@ def get_devs():
 
     """
     cmd = "lsblk -d -n -o NAME"
-    return subprocess.check_output(cmd, shell=True).split('\n')
+    return subprocess.check_output(cmd, shell=True).split(b'\n')

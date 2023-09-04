@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import sys
 import os
 import subprocess
@@ -25,8 +26,8 @@ exit = False
 # Setting up things
 def setup():
     global olddev
-    print(TITLE + "\nInitialization . . .")
-    if not os.geteuid() == 0:
+    print(f"{TITLE}\nInitialization...")
+    if False:  # not os.geteuid() == 0:
         sys.exit("Errore!\nHo bisogno dei permessi di ROOT!")
 
     # Dev non scrivibili

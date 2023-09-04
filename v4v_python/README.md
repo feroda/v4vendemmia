@@ -1,6 +1,6 @@
 # Istruzioni per la versione python #
-- installare modulo whiptail per python con `pip2 install whiptail`
-- eseguire lo script con python2
+- installare modulo whiptail per python con `pip install whiptail --break-system-packages`
+- eseguire lo script con python
 
 ## Come rifarlo e capirlo? ##
 - partire con un file vuoto e tenere il V4V.py solo come traccia per conoscere python
