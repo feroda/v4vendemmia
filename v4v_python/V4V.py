@@ -123,12 +123,6 @@ def usbwrite():
     f.close()
 
 
-# Funzione DVD
-def dvdwrite():
-    print("scrivo su DVD: da implementare in futuro")
-    pass
-
-
 # Main
 setup()
 while not exit:
@@ -148,9 +142,8 @@ while not exit:
         w = whiptail.Whiptail("Menu Principale", TITLE, 20, 78)
         choice = w.menu("Scegli", items=(
             ("1", "Installa un sistema libero su USB"),
-            ("2", "Masterizza un sistema libero su CD/DVD (prossimamente!)"),
-            ("3", "Qualche info su di noi"),
-            ("4", "Aiuto"),
+            ("2", "Qualche info su di noi"),
+            ("3", "Aiuto"),
             ("", ""),
             ("", ""),
             ("", ""),
@@ -171,13 +164,11 @@ while not exit:
     if choice == "1":
         usbwrite()
     elif choice == "2":
-        dvdwrite()
-    elif choice == "3":
         w = whiptail.Whiptail("About us", TITLE, 12, 60)
         w.alert("PDP Free Software User Group <info@pdp.linux.it>\n\n"
                 + "Tributo al admstaff diretto da Renzo Davoli\n\n"
                 + "License: GNU Affero GPLv3")
-    elif choice == "4":
+    elif choice == "3":
         w = whiptail.Whiptail("Need some help?", TITLE, 10, 30)
         w.alert("Usa:\nFrecce    Spostarti\n"
                 + "Spazio    Selezionare\nInvio     Confermare")
