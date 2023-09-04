@@ -48,7 +48,7 @@ def isochoice():
     # Costruisco lista iso da visualizzare e calcolo dimesione
     for i, iso in enumerate(isos, start=1):
         size = size_giga(os.path.join(dirname, iso))
-        items.append((iso, str(size)+"GB", "OFF")), size
+        items.append((iso, str(size)+"GB"))
         if n_length < len(iso):
             n_length = len(iso)
 
@@ -62,13 +62,13 @@ def isochoice():
 
         while not choice:
             w = whiptail.Whiptail("Scelta Iso", TITLE, 20, n_length+25)
-            choice = w.radiolist("Scegli il sistema da portarti a casa:",
+            choice = w.menu("Scegli il sistema da portarti a casa:",
                                  items=items, prefix="     ")
     except SystemExit as e:
         if e.code == 1:
             pass
     else:
-        isofile = os.path.join(dirname, choice[0])
+        isofile = os.path.join(dirname, str(choice))
     return isofile
 
 
@@ -111,7 +111,8 @@ def usbwrite():
     # Scrivo la iso
     cmd = '(pv -n "{}" | /bin/dd of="/dev/{}") 2>&1'.format(isofile, device)
     cmd2 = 'whiptail --gauge "Please wait..." 7 100 0'
-    subprocess.call("{} | {}".format(cmd, cmd2), shell=True)
+    print(f"SCRIVE {cmd=}")
+    # subprocess.call("{} | {}".format(cmd, cmd2), shell=True)
 
     # Finito!
     w = whiptail.Whiptail("Finito!", TITLE, 10, 60)
