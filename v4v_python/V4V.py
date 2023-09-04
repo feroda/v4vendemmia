@@ -9,7 +9,7 @@ from utils import size_giga, get_devs
 
 # Definizioni
 TITLE = "V4Vendemmia 0.3-py"
-PASSWORD = "PDP"
+PASSWORD = b"PDP"
 
 # Controllo presenza DIR
 try:
@@ -161,14 +161,14 @@ while not exit:
                 if e.code == 1:
                     pass
 
-    if choice == "1":
+    if choice == b"1":
         usbwrite()
-    elif choice == "2":
+    elif choice == b"2":
         w = whiptail.Whiptail("About us", TITLE, 12, 60)
         w.alert("PDP Free Software User Group <info@pdp.linux.it>\n\n"
                 + "Tributo al admstaff diretto da Renzo Davoli\n\n"
                 + "License: GNU Affero GPLv3")
-    elif choice == "3":
+    elif choice == b"3":
         w = whiptail.Whiptail("Need some help?", TITLE, 10, 30)
         w.alert("Usa:\nFrecce    Spostarti\n"
                 + "Spazio    Selezionare\nInvio     Confermare")
